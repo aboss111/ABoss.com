@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<title>ABoss.com</title>
+        
+        <!--Fonts from google-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,400,400i,700,700i" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        
+        <!--Style-->
+        <style>
+            body{
+                background:black;
+                font-family: 'Montserrat';
+                color:white;
+                margin:0px;
+                overflow-x:hidden;
+            }
+			/* The -webkit-scrollbar is not supported by Firefox or IE and Edge.*/
+			::-webkit-scrollbar{
+				width:10px;
+			}
+			::-webkit-scrollbar-track{
+				background:#f1f1f1;
+			}
+			::-webkit-scrollbar-thumb{
+				background:#888;
+			}
+			::-webkit-scrollbar-thumb:hover{
+				background:#555;
+			}
+            a{
+                font-family: 'IBM Plex Sans', sans-serif;
+                color:white;
+                text-decoration:none;
+            }
+            a :hover{
+                color:yellow;
+                transition:0.5s;
+            }
+            p{
+                text-align:center;
+            }
+            button{
+                width:110px;
+                background:transparent;
+                border:none;
+                text-align:center;
+                font-size:19px;
+                color:white;
+            }
+            button:hover{
+                background:rgba(255, 255, 255,0.3);
+                transition:0.5s;
+                cursor:pointer;
+            }
+            li{
+				display:inline-block;
+                box-sizing:border-box;
+                text-align:left;
+            }
+            img{
+				postition:relative;
+                width:400px;
+            }
+            h1{
+                display:inline-block;
+                font-size:3.0em;
+                color:rgb(0, 255, 183);
+            }
+            h2{
+                background:rgb(92, 92, 92);
+                width:10%;
+                text-align:right;
+            }
+            h3{
+                text-align:center;
+            }
+            #header{
+                margin:0px;
+                font-family: 'Jua', sans-serif;
+                background:linear-gradient(rgba(255, 255, 255,0.1),rgba(255, 255, 255,0.2) 55%, rgba(255, 255, 255,0.2) 50%, rgba(255, 255, 255,0));
+                text-align:left;
+                width:1920px;
+                height:96px;
+            }
+			#slogan{
+                font-family: 'Anton', sans-serif;
+				position:absolute;
+				left:260px;
+				top:5px;
+                font-size:20px;
+			}
+            #home{
+                text-align:left;
+            }
+            #about{
+                text-align:left;
+            }
+            #projects{
+                text-align:left;
+            }
+            #more{
+                text-align:left;
+            }
+            #img{
+                
+            }
+            .playbutton{
+                background:gray;
+                display:inline-block;
+                width:105px;
+                margin:5px;
+                padding:12px;
+                text-align:center;
+                text-decoration:none;
+            }
+            .playbutton1{
+                background:gray;
+                position:relative;
+                display:inline-block;
+                width:105px;
+                margin:5px;
+                padding:12px;
+                text-align:center;
+                text-decoration:none;
+                left:214px;
+            }
+            .container{
+                box-sizing:border-box;
+                margin:auto;
+                max-width:600px;
+                padding:20px;
+                background:rgba(255,255,255,0.1);
+                position:relative;
+                top:5px;
+            }
+            .li{
+                display:block;
+                margin-top:16px;
+                margin-bottom:-110px;
+            }
+            .program{
+                display:inline-block;
+                position:center;
+                padding:10px;
+            }
+            .program img:hover{
+                transform: scale(1.1);
+            }
+            .popup{
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .popup .popuptext{
+                visibility: hidden;
+                width: 160px;
+                background-color: #555;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 8px 0;
+                position: absolute;
+                z-index: 1;
+                bottom: 125%;
+                left: 100%;
+                margin-left: -80px;
+            }
+            .popup .popuptext::after{
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #555 transparent transparent transparent;
+            }
+            .popup .show{
+                visibility: visible;
+                -webkit-animation: fadeIn 1s;
+                animation: fadeIn 1s;
+            }
+            @-webkit-keyframes fadeIn{
+                from {opacity: 0;} 
+                to {opacity: 1;}
+            }
+            
+            @keyframes fadeIn{
+                from {opacity: 0;}
+                to {opacity:1 ;}
+            }
+            .dropbtn {
+                background-color:grey;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+            }
+			.dropbtn:hover {
+				background:rgba(255, 255, 255,0.3);
+                transition:0.5s;
+                cursor:pointer;
+			}
+            .dropdown {
+				float: right;
+				padding: 15px;
+                position: relative;
+                display: inline-block;
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: white;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .dropdown-content a:hover {background-color: #ddd;}
+        
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="logo+nav">
+            <li><h1 id="header">ABoss.com</h1></li>
+			<h1 id="slogan">Where creativity is created</h1>
+            <button id="button1"><p>Home</p></button>
+            <button id="button2"><p>About</p></button>
+            <button id="button3"><p>Programs</p></button>
+            
+            <div class="dropdown">
+                <button class="dropbtn">Links</button>
+                <div class="dropdown-content">
+                    <a href="https://discord.gg/JPUm8gy">My Discord</a>
+                    <a href="https://www.khanacademy.org/profile/AbrahamNs/projects">All projects</a>
+					<a href="https://github.com/aboss111">GitHub</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="page1">
+            <h2>Home</h2>
+            <p style="border-bottom:3px solid rgba(87, 87, 87,0.6);padding:5px">Welcome to the official ABoss.com! A website about, well, me! I hope you enjoy!</p>
+			<p>This webpage is divided into 3 pages. The home page is the current page you are on welcoming you to the site. The about page tells you a bit about me. The programs page is a collection of some of my best/favorite projects.</p>
+			<p>There is a dropdown at the top of the site. When you hover over it, a list of important links will apear. There is one for my Discord server, all my Khanacademy projects, and my GitHub profile.</p>
+			<p style="border-bottom:3px solid rgba(87, 87, 87,0.6);padding:5px">Warning: The links in the dropdown take you off this site. I guarantee you that the sites are safe. ENTER AT YOUR OWN RISK!!!</p>
+			<p>If you have an account on Khanacademy, you can subscribe to know when I release projects.</p>
+			
+            <div class="container">
+                <h3>Subscribe</h3>
+                <p>Be the first to know when a new program is out!!</p>
+                <a class="playbutton1" href="https://www.khanacademy.org/computer-programming/subscribe-to-aboss-renovated/6715551052005376">Subscribe</a>
+            </div>
+            <div class="popup" onclick="myFunction()"><p>Click me!</p>
+                <span class="popuptext" id="myPopup">Follow me on Discord</span>
+            </div>
+        </div>
+        
+        <div id="page2">
+            <h2>About</h2>
+            <p style="border-bottom:3px solid rgba(87, 87, 87,0.6);padding:5px">Hey, what's up everbody? I'm ABoss! I make programs on Khanacademy. I program in HTML, Python, and JavaScript. I have been on Khanacademy for almost 3 years now. I have almost made it to the top of the hot list. I only needed a few more votes! If you want to see more of my programs, I have a whole section on this website on my favorite projects I have made!</p>
+			
+			<div class="container">
+				<h3>Join the discord!</h3>
+				<p>Join the discord to know when I stream, or just come to chat with other Khanacademy users!</p>
+				<a class="playbutton1" href="https://discord.gg/JPUm8gy">Join</a>
+			</div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="popup" onclick="myFunction1()"><p>Click me!</p>
+                <span class="popuptext" id="myPopup1">Check out my other projects on KA!</span>
+            </div>
+        </div>
+        
+        <div id="page3">
+            <h2>Programs</h2>
+            <h3>Best Programs</h3>
+            <div id="img">
+                    <p style="border-bottom:3px solid rgba(87, 87, 87,0.6);padding:5px">Here are a collection of some of my favorite (and most upvoted) projects.</p>
+                    <ul>
+                        <li class="program">
+                            <a href="https://www.khanacademy.org/computer-programming/steam-logo/4776149118287872"><img src="https://www.khanacademy.org/computer-programming/steam-logo/4776149118287872/5707702298738688.png"></a>
+                            <p>Steam logo</p>
+                        </li>
+                        
+                        <li class="program">
+                            <a href="https://www.khanacademy.org/computer-programming/but-officerjoke/5317030461865984"><img src="https://www.khanacademy.org/computer-programming/but-officerjoke/5317030461865984/5741031244955648.png"></a>
+                            <p>But officer(Joke)</p>
+                        </li>
+                        
+                        <li class="program">
+                            <a href="https://www.khanacademy.org/computer-programming/another-cool-thing/4936717530497024"><img src="https://www.khanacademy.org/computer-programming/another-cool-thing/4936717530497024/5629499534213120.png"></a>
+                            <p>Cool Thing!</p>
+                        </li>
+                        
+                        <li class="program">
+                            <a href="https://www.khanacademy.org/computer-programming/noise/5631953488510976"><img src="https://www.khanacademy.org/computer-programming/noise/5631953488510976/5668600916475904.png"></a>
+                            <p>noise();</p>
+                        </li>
+                        
+                        <li class="program">
+                            <a href="https://www.khanacademy.org/computer-programming/rotation-coolness/4628954472448000"><img src="https://www.khanacademy.org/computer-programming/rotation-coolness/4628954472448000/5629499534213120.png"></a>
+                            <p>Rotation Coolness</p>
+                        </li>
+                        
+                        <li class="program">
+                            <a href="https://www.khanacademy.org/computer-programming/meme-generator/5151560425472000"><img src="https://www.khanacademy.org/computer-programming/meme-generator/5151560425472000/5741031244955648.png"></a>
+                            <p>Meme Generator</p>
+                        </li>
+						<li class="program">
+							<a href="https://www.khanacademy.org/computer-programming/epic-logo/5650688521437184"><img src="https://www.khanacademy.org/computer-programming/epic-logo/5650688521437184/5649050225344512.png"></a>
+							<p>Epic logo</p>
+						</li>
+						<li class="program">
+							<a href="https://www.khanacademy.org/computer-programming/loading-circle/5674883565682688"><img src="https://www.khanacademy.org/computer-programming/loading-circle/5674883565682688/5668600916475904.png"></a>
+							<p>Loading Circle</p>
+						</li>
+                    </ul>
+					
+					<div class="container">
+						<h3>See all my projects</h3>
+						<p>See all my projects on Khanacademy!</p>
+						<a class="playbutton1" href="https://www.khanacademy.org/profile/AbrahamNs/projects">See all</a>
+					</div>
+					
+					<div class="popup" onclick="myFunction2()"><p>Click me!</p>
+						<span class="popuptext" id="myPopup2">Check out my GitHub!</span>
+					</div>
+            </div>
+        
+        <script>
+            var homebutton = document.getElementById("button1");
+            var button1 = document.getElementById("button2");
+            var button2 = document.getElementById("button3");
+            //var button3 = document.getElementById("button4");
+            
+            var page1 = document.getElementById("page1");
+            var page2 = document.getElementById("page2");
+            var page3 = document.getElementById("page3");
+            //var page4 = document.getElementById("page4");
+            
+            page2.hidden = true;
+            page3.hidden = true;
+            //page4.hidden = true;
+            
+            homebutton.addEventListener("click",function(){
+                page1.hidden = false;
+                page2.hidden = true;
+                page3.hidden = true;
+                //page4.hidden = true;
+            });
+            button1.addEventListener("click",function(){
+                page1.hidden = true;
+                page2.hidden = false;
+                page3.hidden = true;
+                //page4.hidden = true;
+            });
+            button2.addEventListener("click",function(){
+                page1.hidden = true;
+                page2.hidden = true;
+                page3.hidden = false;
+                //page4.hidden = true;
+            });
+            //button3.addEventListener("click",function(){
+                //page1.hidden = true;
+                //page2.hidden = true;
+                //page3.hidden = true;
+                //page4.hidden = false;
+            //});
+            
+            function myFunction(){
+                var popup = document.getElementById("myPopup");
+                popup.classList.toggle("show");
+            }
+            function myFunction1(){
+                var popup = document.getElementById("myPopup1");
+                popup.classList.toggle("show");
+            }
+            function myFunction2(){
+                var popup = document.getElementById("myPopup2");
+                popup.classList.toggle("show");
+            }
+            function myFunction3(){
+                var popup = document.GetElementById("myPopup3");
+                popup.classList.toggle("show");
+            }
+        </script>
+    </body>
+</html>
